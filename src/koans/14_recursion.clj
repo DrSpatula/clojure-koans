@@ -14,8 +14,11 @@
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  (if (= 1 (count coll))
-    coll))
+  (loop [coll coll
+         acc  ()]
+    (if (empty? coll)
+      acc
+      (recur (rest coll) (cons (first coll) acc)))))
 
 (defn factorial [n]
   __)
